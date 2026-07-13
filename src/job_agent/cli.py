@@ -9,6 +9,7 @@ from job_agent.digest import render_digest
 from job_agent.history import save_run_history
 from job_agent.insights import attach_skill_signals, build_run_insight
 from job_agent.scoring import filter_top_jobs, score_jobs
+from job_agent.sources.live import fetch_live_jobs
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -40,6 +41,7 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers = parser.add_subparsers(dest="command")
 
     run_parser = subparsers.add_parser("run", help="Generate an on-demand job shortlist.")
+    run_parser.add_argument("--source", choices=("live", "mock"), default="live")
     run_parser.add_argument("--limit", type=int, default=10)
     run_parser.add_argument("--min-score", type=int, default=None)
     run_parser.add_argument("--profile", type=Path, default=DEFAULT_PROFILE_PATH)
@@ -55,7 +57,10 @@ def build_parser() -> argparse.ArgumentParser:
 def run_command(args: argparse.Namespace) -> str:
     profile = load_profile(args.profile)
     companies = load_companies(args.companies)
-    jobs = load_jobs(args.jobs)
+    if args.source == "live":
+        jobs = fetch_live_jobs(companies)
+    else:
+        jobs = load_jobs(args.jobs)
 
     minimum_score = args.min_score
     if minimum_score is None:

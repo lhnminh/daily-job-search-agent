@@ -30,6 +30,8 @@ class Company:
     category: str
     priority: float
     careers_url: str
+    source_type: str = "manual"
+    source_key: str = ""
 
 
 @dataclass(frozen=True)

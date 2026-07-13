@@ -9,7 +9,9 @@
     "name": "Anthropic",
     "category": "frontier_ai_lab",
     "priority": 1.0,
-    "careers_url": "https://www.anthropic.com/careers"
+    "careers_url": "https://www.anthropic.com/careers",
+    "source_type": "greenhouse",
+    "source_key": "anthropic"
   },
   {
     "name": "Google DeepMind",
@@ -27,7 +29,9 @@
     "name": "Scale AI",
     "category": "ai_infrastructure",
     "priority": 0.9,
-    "careers_url": "https://www.scale.com/careers"
+    "careers_url": "https://www.scale.com/careers",
+    "source_type": "greenhouse",
+    "source_key": "scaleai"
   },
   {
     "name": "LangChain",

@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 from datetime import date
+import json
 from pathlib import Path
 import sys
 import unittest
+from unittest.mock import patch
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -19,6 +21,8 @@ from job_agent.insights import (
 from job_agent.matching import find_best_role_match
 from job_agent.models import Job, JobScore, RoleMatch
 from job_agent.scoring import filter_top_jobs, score_jobs
+from job_agent.sources.greenhouse import fetch_greenhouse_jobs
+from job_agent.sources.html_sections import html_to_markdownish
 
 
 class AgentWorkflowTest(unittest.TestCase):
@@ -163,6 +167,59 @@ We are seeking a solutions engineer to partner with our customers and ensure the
         self.assertNotIn("**Why:**", output)
         self.assertNotIn("**Skill signals:**", output)
         self.assertNotIn("What This Means For Your Search", output)
+
+    def test_html_content_converts_to_markdownish_sections(self) -> None:
+        html = """
+        <h2><strong>About the Role</strong></h2>
+        <p>We are seeking a solutions engineer.</p>
+        <h2><strong>What You'll Do</strong></h2>
+        <ul><li>Partner with customers.</li></ul>
+        <h2><strong>What We're Looking For</strong></h2>
+        <ul><li>Have Python experience.</li></ul>
+        """
+        output = html_to_markdownish(html)
+        self.assertIn("**About the Role**", output)
+        self.assertIn("We are seeking a solutions engineer.", output)
+        self.assertIn("- Have Python experience.", output)
+
+    def test_greenhouse_fetcher_normalizes_jobs(self) -> None:
+        company = self.companies["anthropic"]
+        payload = {
+            "jobs": [
+                {
+                    "id": 123,
+                    "title": "Solutions Engineer",
+                    "absolute_url": "https://example.com/job",
+                    "location": {"name": "San Francisco, CA"},
+                    "departments": [{"name": "GTM"}],
+                    "first_published": "2026-07-01T10:00:00-04:00",
+                    "content": (
+                        "&lt;h2&gt;&lt;strong&gt;About the Role&lt;/strong&gt;&lt;/h2&gt;"
+                        "&lt;p&gt;We are seeking a solutions engineer.&lt;/p&gt;"
+                        "&lt;h2&gt;&lt;strong&gt;What We're Looking For&lt;/strong&gt;&lt;/h2&gt;"
+                        "&lt;ul&gt;&lt;li&gt;Have Python experience.&lt;/li&gt;&lt;/ul&gt;"
+                    ),
+                }
+            ]
+        }
+
+        class FakeResponse:
+            def __enter__(self):
+                return self
+
+            def __exit__(self, exc_type, exc, traceback):
+                return None
+
+            def read(self):
+                return json.dumps(payload).encode("utf-8")
+
+        with patch("job_agent.sources.greenhouse.urlopen", return_value=FakeResponse()):
+            jobs = fetch_greenhouse_jobs(company)
+
+        self.assertEqual(len(jobs), 1)
+        self.assertEqual(jobs[0].title, "Solutions Engineer")
+        self.assertIn("**About the Role**", jobs[0].description)
+        self.assertIn("- Have Python experience.", jobs[0].description)
 
 
 if __name__ == "__main__":

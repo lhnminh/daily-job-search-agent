@@ -39,6 +39,8 @@ def load_companies(path: Path) -> dict[str, Company]:
             category=item["category"],
             priority=float(item["priority"]),
             careers_url=item["careers_url"],
+            source_type=item.get("source_type", "manual"),
+            source_key=item.get("source_key", ""),
         )
         companies[company.name.casefold()] = company
     return companies

@@ -10,11 +10,12 @@ Planning starts in [docs/plan.md](docs/plan.md).
 uv run python main.py run
 ```
 
-The command prints a Markdown report and saves the latest report to `reports/latest.md`.
+The command fetches live postings from configured job boards, prints a Markdown report, and saves the latest report to `reports/latest.md`.
 
 Useful options:
 
 ```bash
+uv run python main.py run --source mock
 uv run python main.py run --limit 5
 uv run python main.py run --min-score 70
 uv run python main.py run --report reports/my-run.md

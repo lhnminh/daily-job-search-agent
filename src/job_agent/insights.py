@@ -273,9 +273,15 @@ def _normalize_heading(line: str) -> str:
 def _classify_heading(heading: str) -> str:
     if "about the role" in heading or heading == "about role":
         return "about_role"
-    if "thrive" in heading or "qualifications" in heading or "requirements" in heading:
+    if (
+        "thrive" in heading
+        or "qualifications" in heading
+        or "requirements" in heading
+        or "looking for" in heading
+        or "good fit" in heading
+    ):
         return "requirements"
-    if "in this role" in heading or "you will" in heading:
+    if "in this role" in heading or "you will" in heading or "you'll do" in heading:
         return "responsibilities"
     return ""
 
