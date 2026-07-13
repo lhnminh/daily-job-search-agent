@@ -1,0 +1,93 @@
+{
+  "target_role_families": [
+    {
+      "name": "Forward Deployed Engineer",
+      "priority": 1.0,
+      "title_terms": [
+        "forward deployed engineer",
+        "forward deployed ai engineer",
+        "field engineer",
+        "ai field engineer",
+        "solutions engineer",
+        "customer engineer"
+      ],
+      "description_terms": [
+        "customer deployment",
+        "enterprise customers",
+        "implementation",
+        "technical ownership",
+        "solution architecture",
+        "production ai systems",
+        "agentic workflows"
+      ]
+    },
+    {
+      "name": "Technical Program Management",
+      "priority": 0.9,
+      "title_terms": [
+        "technical program manager",
+        "program manager ai",
+        "ai program manager",
+        "engineering program manager",
+        "platform program manager"
+      ],
+      "description_terms": [
+        "cross-functional",
+        "roadmap",
+        "ai infrastructure",
+        "model deployment",
+        "launch management",
+        "stakeholder management"
+      ]
+    },
+    {
+      "name": "AI Engineer",
+      "priority": 0.8,
+      "title_terms": [
+        "ai engineer",
+        "applied ai engineer",
+        "machine learning engineer",
+        "llm engineer",
+        "product engineer ai",
+        "software engineer ai"
+      ],
+      "description_terms": [
+        "llm",
+        "agents",
+        "rag",
+        "evaluation",
+        "model integration",
+        "python",
+        "production systems"
+      ]
+    }
+  ],
+  "preferred_locations": [
+    "remote",
+    "san francisco",
+    "new york",
+    "seattle"
+  ],
+  "remote_preference": "preferred",
+  "seniority_terms": [
+    "mid-level",
+    "senior",
+    "staff"
+  ],
+  "minimum_score": 60,
+  "current_skills": [
+    "python",
+    "llm apps",
+    "data pipelines",
+    "product thinking"
+  ],
+  "current_projects": [
+    "ai learning coordinator",
+    "job search agent"
+  ],
+  "avoid_terms": [
+    "intern",
+    "unpaid",
+    "clearance required"
+  ]
+}

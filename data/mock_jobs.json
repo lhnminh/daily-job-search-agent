@@ -1,0 +1,112 @@
+[
+  {
+    "id": "openai-fde-001",
+    "company": "OpenAI",
+    "title": "Forward Deployed Engineer",
+    "location": "San Francisco, CA",
+    "department": "Go To Market",
+    "url": "https://openai.com/careers/example-fde",
+    "description": "Responsibilities: Work directly with strategic enterprise customers to design, implement, and deploy production AI systems. Own technical decisions through customer deployment. Key requirements: Python, solution architecture, customer deployment, technical ownership, and comfort with ambiguous agentic workflows.",
+    "posted_at": "2026-07-08",
+    "seniority": "senior"
+  },
+  {
+    "id": "anthropic-tpm-001",
+    "company": "Anthropic",
+    "title": "Technical Program Manager, AI Infrastructure",
+    "location": "San Francisco, CA",
+    "department": "Engineering",
+    "url": "https://www.anthropic.com/careers/example-tpm",
+    "description": "Responsibilities: Drive cross-functional execution for AI infrastructure programs. Coordinate model deployment launches across research, product, and engineering. Key requirements: AI infrastructure, roadmap coordination, launch management, and stakeholder management.",
+    "posted_at": "2026-07-05",
+    "seniority": "senior"
+  },
+  {
+    "id": "deepmind-ai-eng-001",
+    "company": "Google DeepMind",
+    "title": "Applied AI Engineer",
+    "location": "New York, NY",
+    "department": "Applied",
+    "url": "https://deepmind.google/careers/example-applied-ai",
+    "description": "Responsibilities: Build applied machine learning products for real users. Improve model integration and production AI systems. Key requirements: LLMs, evaluation pipelines, Python, model integration, and production systems.",
+    "posted_at": "2026-07-01",
+    "seniority": "mid-level"
+  },
+  {
+    "id": "databricks-solutions-001",
+    "company": "Databricks",
+    "title": "Solutions Engineer, AI",
+    "location": "Remote - US",
+    "department": "Field Engineering",
+    "url": "https://www.databricks.com/company/careers/example-ai-se",
+    "description": "Responsibilities: Partner with enterprise customers on AI implementation and technical discovery. Design solution architecture for production data and AI workflows. Key requirements: RAG systems, solution architecture, enterprise implementation, and customer-facing technical communication.",
+    "posted_at": "2026-07-10",
+    "seniority": "senior"
+  },
+  {
+    "id": "scale-field-001",
+    "company": "Scale AI",
+    "title": "AI Field Engineer",
+    "location": "San Francisco, CA",
+    "department": "Customer Engineering",
+    "url": "https://www.scale.com/careers/example-field-ai",
+    "description": "Responsibilities: Own customer deployment for production AI workflows. Guide enterprise implementation and evaluation systems. Key requirements: Python, stakeholder management, production AI workflows, and customer deployment experience.",
+    "posted_at": "2026-07-03",
+    "seniority": "senior"
+  },
+  {
+    "id": "langchain-devrel-001",
+    "company": "LangChain",
+    "title": "Developer Relations Engineer, AI Agents",
+    "location": "Remote",
+    "department": "Developer Experience",
+    "url": "https://www.langchain.com/careers/example-devrel",
+    "description": "Responsibilities: Create technical content, demos, and reference applications. Work closely with users and product engineering. Key requirements: agents, RAG, evaluation, LLM app development, and user-facing technical communication.",
+    "posted_at": "2026-06-30",
+    "seniority": "mid-level"
+  },
+  {
+    "id": "cursor-product-ai-001",
+    "company": "Cursor",
+    "title": "Product Engineer, AI",
+    "location": "San Francisco, CA",
+    "department": "Product Engineering",
+    "url": "https://www.cursor.com/careers/example-product-ai",
+    "description": "Responsibilities: Build AI-native developer tools for software teams. Improve product workflows powered by LLMs. Key requirements: model integration, product intuition, Python, TypeScript, and production systems.",
+    "posted_at": "2026-07-07",
+    "seniority": "mid-level"
+  },
+  {
+    "id": "harvey-gtm-ai-001",
+    "company": "Harvey",
+    "title": "GTM Engineer, AI",
+    "location": "New York, NY",
+    "department": "GTM",
+    "url": "https://www.harvey.ai/careers/example-gtm-engineer",
+    "description": "Responsibilities: Bridge sales, product, and engineering for enterprise AI customers. Build prototypes and guide implementation. Key requirements: customer requirements discovery, enterprise AI workflows, prototyping, and product feedback translation.",
+    "posted_at": "2026-07-02",
+    "seniority": "mid-level"
+  },
+  {
+    "id": "glean-tpm-001",
+    "company": "Glean",
+    "title": "Engineering Program Manager, AI Search",
+    "location": "Palo Alto, CA",
+    "department": "Engineering",
+    "url": "https://www.glean.com/careers/example-epm-ai",
+    "description": "Responsibilities: Lead cross-functional execution for AI search launches. Coordinate engineering operations across product and infrastructure teams. Key requirements: roadmap planning, stakeholder management, AI search, and launch management.",
+    "posted_at": "2026-06-28",
+    "seniority": "senior"
+  },
+  {
+    "id": "generic-lowfit-001",
+    "company": "OpenAI",
+    "title": "People Operations Coordinator",
+    "location": "San Francisco, CA",
+    "department": "People",
+    "url": "https://openai.com/careers/example-people",
+    "description": "Responsibilities: Coordinate people operations programs, scheduling, onboarding, and internal process documentation. Key requirements: operations coordination, process documentation, and scheduling.",
+    "posted_at": "2026-07-11",
+    "seniority": "mid-level"
+  }
+]

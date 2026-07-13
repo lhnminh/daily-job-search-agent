@@ -1,0 +1,62 @@
+[
+  {
+    "name": "OpenAI",
+    "category": "frontier_ai_lab",
+    "priority": 1.0,
+    "careers_url": "https://openai.com/careers"
+  },
+  {
+    "name": "Anthropic",
+    "category": "frontier_ai_lab",
+    "priority": 1.0,
+    "careers_url": "https://www.anthropic.com/careers"
+  },
+  {
+    "name": "Google DeepMind",
+    "category": "frontier_ai_lab",
+    "priority": 0.95,
+    "careers_url": "https://deepmind.google/careers"
+  },
+  {
+    "name": "Databricks",
+    "category": "ai_infrastructure",
+    "priority": 0.9,
+    "careers_url": "https://www.databricks.com/company/careers"
+  },
+  {
+    "name": "Scale AI",
+    "category": "ai_infrastructure",
+    "priority": 0.9,
+    "careers_url": "https://www.scale.com/careers"
+  },
+  {
+    "name": "LangChain",
+    "category": "ai_developer_tools",
+    "priority": 0.85,
+    "careers_url": "https://www.langchain.com/careers"
+  },
+  {
+    "name": "Hugging Face",
+    "category": "ai_developer_tools",
+    "priority": 0.85,
+    "careers_url": "https://huggingface.co/jobs"
+  },
+  {
+    "name": "Cursor",
+    "category": "ai_product",
+    "priority": 0.85,
+    "careers_url": "https://www.cursor.com/careers"
+  },
+  {
+    "name": "Harvey",
+    "category": "ai_product",
+    "priority": 0.8,
+    "careers_url": "https://www.harvey.ai/careers"
+  },
+  {
+    "name": "Glean",
+    "category": "ai_product",
+    "priority": 0.8,
+    "careers_url": "https://www.glean.com/careers"
+  }
+]
