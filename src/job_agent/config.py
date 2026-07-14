@@ -28,6 +28,8 @@ def load_profile(path: Path) -> UserProfile:
         current_skills=tuple(data["current_skills"]),
         current_projects=tuple(data["current_projects"]),
         avoid_terms=tuple(data["avoid_terms"]),
+        excluded_title_prefixes=tuple(data.get("excluded_title_prefixes", ())),
+        excluded_locations=tuple(data.get("excluded_locations", ())),
     )
 
 

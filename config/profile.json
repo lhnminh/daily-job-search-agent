@@ -89,5 +89,13 @@
     "intern",
     "unpaid",
     "clearance required"
+  ],
+  "excluded_title_prefixes": [
+    "manager,"
+  ],
+  "excluded_locations": [
+    "london",
+    "united kingdom",
+    "uk"
   ]
 }

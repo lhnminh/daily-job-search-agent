@@ -19,6 +19,7 @@ from job_agent.insights import (
     extract_responsibilities_and_requirements,
 )
 from job_agent.matching import find_best_role_match
+from job_agent.matching import has_avoid_term
 from job_agent.models import Job, JobScore, RoleMatch
 from job_agent.scoring import filter_top_jobs, score_jobs
 from job_agent.sources.greenhouse import fetch_greenhouse_jobs
@@ -68,6 +69,48 @@ class AgentWorkflowTest(unittest.TestCase):
         top_jobs = filter_top_jobs(scored, limit=5, minimum_score=60)
         self.assertLessEqual(len(top_jobs), 5)
         self.assertTrue(all(item.score >= 60 for item in top_jobs))
+
+    def test_filters_people_manager_titles_without_filtering_tpm(self) -> None:
+        manager_job = Job(
+            id="manager-applied-ai",
+            company="Anthropic",
+            title="Manager, Applied AI Engineering",
+            location="San Francisco, CA",
+            department="Applied AI",
+            url="https://example.com/manager",
+            description="About the role",
+            posted_at=None,
+            seniority="senior",
+        )
+        tpm_job = Job(
+            id="technical-program-manager",
+            company="Anthropic",
+            title="Technical Program Manager, Inference Performance",
+            location="San Francisco, CA",
+            department="Engineering",
+            url="https://example.com/tpm",
+            description="About the role",
+            posted_at=None,
+            seniority="senior",
+        )
+
+        self.assertTrue(has_avoid_term(manager_job, self.profile))
+        self.assertFalse(has_avoid_term(tpm_job, self.profile))
+
+    def test_filters_uk_locations(self) -> None:
+        uk_job = Job(
+            id="uk-machine-learning",
+            company="Scale AI",
+            title="Machine Learning Engineer, Platform",
+            location="London, UK",
+            department="Engineering",
+            url="https://example.com/uk",
+            description="About the role",
+            posted_at=None,
+            seniority="senior",
+        )
+
+        self.assertTrue(has_avoid_term(uk_job, self.profile))
 
     def test_insights_extract_repeated_market_signals(self) -> None:
         scored = score_jobs(

@@ -35,7 +35,11 @@ def find_best_role_match(job: Job, profile: UserProfile) -> RoleMatch:
 
 def has_avoid_term(job: Job, profile: UserProfile) -> bool:
     combined = _normalize(f"{job.title} {job.description}")
-    return any(_contains_term(combined, term) for term in profile.avoid_terms)
+    return (
+        any(_contains_term(combined, term) for term in profile.avoid_terms)
+        or _has_excluded_title_prefix(job, profile)
+        or _has_excluded_location(job, profile)
+    )
 
 
 def _normalize(value: str) -> str:
@@ -47,3 +51,16 @@ def _contains_term(text: str, term: str) -> bool:
     if " " in normalized_term:
         return normalized_term in text
     return re.search(rf"\b{re.escape(normalized_term)}\b", text) is not None
+
+
+def _has_excluded_title_prefix(job: Job, profile: UserProfile) -> bool:
+    title = job.title.casefold().strip()
+    return any(
+        title.startswith(prefix.casefold().strip())
+        for prefix in profile.excluded_title_prefixes
+    )
+
+
+def _has_excluded_location(job: Job, profile: UserProfile) -> bool:
+    location = _normalize(job.location)
+    return any(_contains_term(location, term) for term in profile.excluded_locations)

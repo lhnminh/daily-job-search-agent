@@ -22,6 +22,8 @@ class UserProfile:
     current_skills: tuple[str, ...]
     current_projects: tuple[str, ...]
     avoid_terms: tuple[str, ...]
+    excluded_title_prefixes: tuple[str, ...] = ()
+    excluded_locations: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
