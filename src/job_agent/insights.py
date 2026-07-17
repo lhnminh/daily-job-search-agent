@@ -10,7 +10,7 @@ SIGNAL_RULES: dict[str, tuple[str, ...]] = {
         "production ai",
         "production systems",
         "deploy",
-        "deployment",
+        "deployment"
     ),
     "customer-facing technical ownership": (
         "customer",
